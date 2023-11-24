@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema(
             unique: true,
             lowercase: true,
         },
-        fullname:{
+        fullName:{
             type: String,
             required: true,
             trim: true,
@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema(
             }
         ],
         password: {
-            type: true,
+            type: String,
             required: true
         },
         refreshToken:{
@@ -65,7 +65,7 @@ userSchema.methods.generateAccessToken = function(){
             _id: this._id,
             email: this.email,
             username: this.username,
-            fullname: this.fullname
+            fullName: this.fullName
         },
         process.env.ACCESS_TOKEN_SECRET,
         {
